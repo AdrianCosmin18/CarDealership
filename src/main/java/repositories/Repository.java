@@ -11,8 +11,8 @@ public abstract class Repository<T> {
     private String JdbcURL = "jdbc:mysql://localhost:3306/cardealership";
     private String username = "root";
     private String password = "1234";
-    private Connection connection = null;
-    private Statement statement = null;
+    protected Connection connection = null;
+    protected Statement statement = null;
 
     public Repository(){
 
