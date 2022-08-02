@@ -1,5 +1,7 @@
 package repositories;
 
+import exceptions.IDNotFoundException;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -25,9 +27,7 @@ public abstract class Repository<T> {
     }
 
     public void executeStatement(String execute){
-
         try{
-
             statement.execute(execute);
         }catch (SQLException e){
 
@@ -36,8 +36,8 @@ public abstract class Repository<T> {
     }
 
     protected abstract void insert(T t);
-    protected abstract void delete(int id);
+    protected abstract void delete(int id) throws IDNotFoundException;
     protected abstract List<T> selectAll();
-    protected abstract void update(T t);
-    protected abstract boolean contains(T t);
+    protected abstract void update(T t) throws IDNotFoundException;
+    protected abstract boolean contains(T t) throws IDNotFoundException;
 }
