@@ -81,7 +81,7 @@ public class CarRepository extends Repository<Car> {
         return false;
     }
 
-
+    //good
     @Override
     protected void update(Car car) throws IDNotFoundException{
 
@@ -93,6 +93,7 @@ public class CarRepository extends Repository<Car> {
             throw new IDNotFoundException(car.getId());
     }
 
+    //good
     @Override
     protected boolean contains(Car car) throws IDNotFoundException{
 
@@ -117,7 +118,7 @@ public class CarRepository extends Repository<Car> {
     protected List<Car> getByName(String model){
 
         System.out.println(model.toLowerCase());
-        String text = String.format("select * from cars where lower(model) like %'%s'%;", model.toLowerCase());
+        String text = String.format("select * from cars where lower(model) like % '%s' %;", model.toLowerCase());
         executeStatement(text);
 
         try{
